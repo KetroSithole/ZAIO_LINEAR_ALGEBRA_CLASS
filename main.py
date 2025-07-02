@@ -1,13 +1,10 @@
 import pandas as pd
 import numpy as np
 
-
-# Read CSV without headers
+# Read the CSV file (no headers)
 df = pd.read_csv('vectors.csv', header=None)
 
-for index, row in df.iterrows():
-    # Drop NaN values if row has fewer than 4 columns
-    vector_values = row.dropna().values.astype(float)
-    vector = np.array(vector_values)
-    
-    print(f"Vector at row {index + 1} ({len(vector)}D): {vector}")
+# Iterate over each row and convert to NumPy vector
+for i, row in df.iterrows():
+    vector = np.array(row.dropna().tolist(), dtype=float)
+    print(f"{len(vector)}D Vector at row {i + 1}: {vector}")
