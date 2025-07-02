@@ -1,8 +1,16 @@
 import pandas as pd
 import numpy as np
 
-# Read the CSV file (no headers)
-df = pd.read_csv('vectors.csv', header=None)
+# Define the data directly
+data = [
+    [1, 2, 3, None],
+    [4, 5, None, None],
+    [6, 7, 8, 9],
+    [10, None, None, None]
+]
+
+# Create DataFrame
+df = pd.DataFrame(data)
 
 # Iterate over each row and convert to NumPy vector
 for i, row in df.iterrows():
